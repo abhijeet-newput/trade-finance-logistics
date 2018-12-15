@@ -22,35 +22,7 @@
 #   as parameters to the configtxgen tool
 #
 ################################################################################
-Profiles:
 
-    FourOrgsTradeOrdererGenesis:
-        Capabilities:
-            <<: *ChannelCapabilities
-        Orderer:
-            <<: *OrdererDefaults
-            Organizations:
-                - *TradeOrdererOrg
-            Capabilities:
-                <<: *OrdererCapabilities
-        Consortiums:
-            TradeConsortium:
-                Organizations:
-                    - *ExporterOrg
-                    - *ImporterOrg
-                    - *CarrierOrg
-                    - *RegulatorOrg
-    FourOrgsTradeChannel:
-        Consortium: TradeConsortium
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
-                - *ExporterOrg
-                - *ImporterOrg
-                - *CarrierOrg
-                - *RegulatorOrg
-            Capabilities:
-                <<: *ApplicationCapabilities
 
 ################################################################################
 #
@@ -250,3 +222,35 @@ Capabilities:
         # modification of which would cause incompatibilities.  Users should
         # leave this flag set to true.
         V1_1: true
+
+
+
+Profiles:
+
+    FourOrgsTradeOrdererGenesis:
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *TradeOrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            TradeConsortium:
+                Organizations:
+                    - *ExporterOrg
+                    - *ImporterOrg
+                    - *CarrierOrg
+                    - *RegulatorOrg
+    FourOrgsTradeChannel:
+        Consortium: TradeConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *ExporterOrg
+                - *ImporterOrg
+                - *CarrierOrg
+                - *RegulatorOrg
+            Capabilities:
+                <<: *ApplicationCapabilities
